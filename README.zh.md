@@ -123,4 +123,4 @@ pnpm test        # 构建 lib/ 后运行全部测试
 
 `lib/` 随仓库提交，供从 GitHub 安装时直接使用；修改源码后请运行 `pnpm run build` 并一起提交 `lib/`。
 
-测试使用 npm 上发布的 DSH 0.2.0-rc.2 包：真实 JSONL 会话存储、真实工作区注册表与 Typert 网关。附件按 `dsh-attachment-local` 的目录布局生成（含硬链接文件名），回收站条目按 `dsh-plugin-session-trash` 的格式生成（含 Zstandard 多帧压缩、被截断的帧和不完整的行），全部在临时目录中；每个场景都会对比附件、会话和回收站目录在统计、“在访达中显示”和“用预览打开”前后逐字节、逐 inode 不变。测试中把官方 `revealNativePath` 替换为记录调用；“用预览打开”运行真实的官方 `nativeFileApplications` / `openNativeFileApplication`，只把它们的命令执行器换成记录器，并断言传给它的固定参数，不会真的打开访达或预览。客户端测试从相邻目录 `../dsh-0.2.0-rc.2` 加载真实的界面组件（见 `tests/primitives-shim.ts`）。
+测试使用 npm 上发布的 DSH 0.2.0-rc.2 包：真实 JSONL 会话存储、真实工作区注册表与 Typert 网关。附件按 `dsh-attachment-local` 的目录布局生成（含硬链接文件名），回收站条目按 `dsh-plugin-session-trash` 的格式生成（含 Zstandard 多帧压缩、被截断的帧和不完整的行），全部在临时目录中；每个场景都会对比附件、会话和回收站目录在统计、“在访达中显示”和“用预览打开”前后逐字节、逐 inode 不变。测试中把官方 `revealNativePath` 替换为记录调用；“用预览打开”运行真实的官方 `nativeFileApplications` / `openNativeFileApplication`，只把它们的命令执行器换成记录器，并断言传给它的固定参数，不会真的打开访达或预览。客户端测试从 `tests/vendor/ui-primitives` 加载真实的 0.2.0-rc.2 界面组件（DSH 源码原样副本，MIT 许可证，见 `tests/primitives-shim.ts`）；不需要 DSH 源码目录。
