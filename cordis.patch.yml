@@ -1,0 +1,5 @@
+# dsh-plugin-attachment-library bundle layer: mount the Host service under its
+# package name. The browser half rides on this row (dsh.client in package.json).
+- insert:
+    - id: attachment-library
+      name: dsh-plugin-attachment-library
